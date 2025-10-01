@@ -1,595 +1,1237 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>De Katzu - Frozen Food Rumahan</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
+      body {
+        font-family: "Inter", sans-serif;
+        scroll-behavior: smooth;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Inter", sans-serif;
+        font-weight: 800;
+      }
+      .nav-link.active {
+        color: #f59e0b; /* amber-500 */
+        font-weight: 700;
+        position: relative;
+      }
+      .nav-link.active::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #f59e0b; /* amber-500 */
+      }
+      .page-content {
+        display: none;
+      }
+      .page-content.active {
+        display: block;
+      }
+      .fade-in {
+        animation: fadeIn 0.5s ease-in-out;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
         }
-        h1, h2, h3 {
-            font-family: 'Inter', sans-serif;
-            font-weight: 800;
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
-        .nav-link.active {
-            color: #F59E0B; /* amber-500 */
-            font-weight: 700;
-            position: relative;
-        }
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: #F59E0B; /* amber-500 */
-        }
-        .page-content {
-            display: none;
-        }
-        .page-content.active {
-            display: block;
-        }
-        .fade-in {
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        /* CSS Modal Dihapus */
+      }
+      /* CSS Modal Dihapus */
     </style>
-</head>
-<body class="bg-amber-50 text-gray-800">
-
+  </head>
+  <body class="bg-amber-50 text-gray-800">
     <!-- Header & Navigasi -->
     <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#home" class="text-2xl font-bold text-amber-600 page-switcher" data-page="home">De Katzu</a>
-            <div class="hidden lg:flex space-x-8 items-center">
-                <a href="#home" class="nav-link page-switcher active" data-page="home">Home</a>
-                <a href="#tentang" class="nav-link page-switcher" data-page="tentang">Tentang Kami</a>
-                <a href="#produk" class="nav-link page-switcher" data-page="produk">Produk</a>
-                <a href="#pesan" class="nav-link page-switcher" data-page="pesan">Cara Pesan</a>
-                <a href="#testimoni" class="nav-link page-switcher" data-page="testimoni">Testimoni</a>
-                <a href="#blog" class="nav-link page-switcher" data-page="blog">Blog</a>
-                <a href="#faq" class="nav-link page-switcher" data-page="faq">FAQ</a>
-                <a href="#kontak" class="nav-link page-switcher" data-page="kontak">Kontak</a>
-            </div>
-            <button id="mobile-menu-button" class="lg:hidden text-gray-600">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
-        </nav>
-        <!-- Navigasi Mobile -->
-        <div id="mobile-menu" class="hidden lg:hidden px-6 pb-4 flex-col space-y-4">
-            <a href="#home" class="block nav-link page-switcher" data-page="home">Home</a>
-            <a href="#tentang" class="block nav-link page-switcher" data-page="tentang">Tentang Kami</a>
-            <a href="#produk" class="block nav-link page-switcher" data-page="produk">Produk</a>
-            <a href="#pesan" class="block nav-link page-switcher" data-page="pesan">Cara Pesan</a>
-            <a href="#testimoni" class="block nav-link page-switcher" data-page="testimoni">Testimoni</a>
-            <a href="#blog" class="block nav-link page-switcher" data-page="blog">Blog</a>
-            <a href="#faq" class="block nav-link page-switcher" data-page="faq">FAQ</a>
-            <a href="#kontak" class="block nav-link page-switcher" data-page="kontak">Kontak</a>
+      <nav
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a
+          href="#home"
+          class="text-2xl font-bold text-amber-600 page-switcher"
+          data-page="home"
+          >De Katzu</a
+        >
+        <div class="hidden lg:flex space-x-8 items-center">
+          <a href="#home" class="nav-link page-switcher active" data-page="home"
+            >Home</a
+          >
+          <a href="#tentang" class="nav-link page-switcher" data-page="tentang"
+            >Tentang Kami</a
+          >
+          <a href="#produk" class="nav-link page-switcher" data-page="produk"
+            >Produk</a
+          >
+          <a href="#pesan" class="nav-link page-switcher" data-page="pesan"
+            >Cara Pesan</a
+          >
+          <a
+            href="#testimoni"
+            class="nav-link page-switcher"
+            data-page="testimoni"
+            >Testimoni</a
+          >
+          <a href="#blog" class="nav-link page-switcher" data-page="blog"
+            >Blog</a
+          >
+          <a href="#faq" class="nav-link page-switcher" data-page="faq">FAQ</a>
+          <a href="#kontak" class="nav-link page-switcher" data-page="kontak"
+            >Kontak</a
+          >
         </div>
+        <button id="mobile-menu-button" class="lg:hidden text-gray-600">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+        </button>
+      </nav>
+      <!-- Navigasi Mobile -->
+      <div
+        id="mobile-menu"
+        class="hidden lg:hidden px-6 pb-4 flex-col space-y-4"
+      >
+        <a href="#home" class="block nav-link page-switcher" data-page="home"
+          >Home</a
+        >
+        <a
+          href="#tentang"
+          class="block nav-link page-switcher"
+          data-page="tentang"
+          >Tentang Kami</a
+        >
+        <a
+          href="#produk"
+          class="block nav-link page-switcher"
+          data-page="produk"
+          >Produk</a
+        >
+        <a href="#pesan" class="block nav-link page-switcher" data-page="pesan"
+          >Cara Pesan</a
+        >
+        <a
+          href="#testimoni"
+          class="block nav-link page-switcher"
+          data-page="testimoni"
+          >Testimoni</a
+        >
+        <a href="#blog" class="block nav-link page-switcher" data-page="blog"
+          >Blog</a
+        >
+        <a href="#faq" class="block nav-link page-switcher" data-page="faq"
+          >FAQ</a
+        >
+        <a
+          href="#kontak"
+          class="block nav-link page-switcher"
+          data-page="kontak"
+          >Kontak</a
+        >
+      </div>
     </header>
 
     <main class="container mx-auto px-6 py-8 md:py-16">
-        <!-- Konten Halaman Home -->
-        <section id="home" class="page-content active fade-in" data-page="home">
-            <!-- Hero Section -->
-            <div class="flex flex-col lg:flex-row items-center gap-12">
-                <div class="lg:w-1/2 text-center lg:text-left">
-                    <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">Frozen Food Rumahan, <span class="text-amber-600">Rasa Restoran</span></h1>
-                    <p class="mt-4 text-lg text-gray-600">Praktis, sehat, dan lezat untuk keluarga tercinta.</p>
-                    <a href="https://wa.me/6281234567890?text=Halo%20De%20Katzu,%20saya%20mau%20pesan." target="_blank" class="mt-8 inline-block bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                        Pesan via WhatsApp
-                    </a>
-                </div>
-                <div class="lg:w-1/2 mt-8 lg:mt-0">
-                    <img src="https://img-global.cpcdn.com/recipes/94413252a30f3ca9/1280x1280sq80/photo.webp" alt="Chicken Katsu dan Nugget Sayur" class="rounded-2xl shadow-2xl w-full h-auto">
-                </div>
-            </div>
+      <!-- Konten Halaman Home -->
+      <section id="home" class="page-content active fade-in" data-page="home">
+        <!-- Hero Section -->
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+          <div class="lg:w-1/2 text-center lg:text-left">
+            <h1
+              class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight"
+            >
+              Frozen Food Rumahan,
+              <span class="text-amber-600">Rasa Restoran</span>
+            </h1>
+            <p class="mt-4 text-lg text-gray-600">
+              Praktis, sehat, dan lezat untuk keluarga tercinta.
+            </p>
+            <a
+              href="https://wa.me/6281234567890?text=Halo%20De%20Katzu,%20saya%20mau%20pesan."
+              target="_blank"
+              class="mt-8 inline-block bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-transform transform hover:scale-105"
+            >
+              Pesan via WhatsApp
+            </a>
+          </div>
+          <div class="lg:w-1/2 mt-8 lg:mt-0">
+            <img
+              src="https://img-global.cpcdn.com/recipes/94413252a30f3ca9/1280x1280sq80/photo.webp"
+              alt="Chicken Katsu dan Nugget Sayur"
+              class="rounded-2xl shadow-2xl w-full h-auto"
+            />
+          </div>
+        </div>
 
-            <!-- Highlight Produk -->
-            <div class="mt-24">
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-white p-8 rounded-2xl shadow-lg flex flex-col items-center text-center">
-                        <img src="https://i.ibb.co.com/cKTSsSzX/Alhamdulillah-pesanan-meluncur-ke-Depok-chikenkatsubento-chikenkatsufrozen-chikenkatsumurah-1.jpg">
-                        <h3 class="text-2xl font-bold mb-2">Chicken Katsu</h3>
-                        <p class="text-gray-600">Renyahnya ala restoran, harga ramah di kantong.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-2xl shadow-lg flex flex-col items-center text-center">
-                        <img src="https://i.ibb.co.com/hx14B3vc/273538653-628798268233040-5724053253608695181-n.jpg" alt="Nugget Sayur" class="rounded-lg mb-4 w-full h-auto">
-                        <h3 class="text-2xl font-bold mb-2">Nugget Sayur</h3>
-                        <p class="text-gray-600">Lezat dan sehat, kaya sayuran untuk anak-anak.</p>
-                    </div>
-                </div>
+        <!-- Highlight Produk -->
+        <div class="mt-24">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div
+              class="bg-white p-8 rounded-2xl shadow-lg flex flex-col items-center text-center"
+            >
+              <img
+                src="https://i.ibb.co.com/cKTSsSzX/Alhamdulillah-pesanan-meluncur-ke-Depok-chikenkatsubento-chikenkatsufrozen-chikenkatsumurah-1.jpg"
+              />
+              <h3 class="text-2xl font-bold mb-2">Chicken Katsu</h3>
+              <p class="text-gray-600">
+                Renyahnya ala restoran, harga ramah di kantong.
+              </p>
             </div>
+            <div
+              class="bg-white p-8 rounded-2xl shadow-lg flex flex-col items-center text-center"
+            >
+              <img
+                src="https://i.ibb.co.com/hx14B3vc/273538653-628798268233040-5724053253608695181-n.jpg"
+                alt="Nugget Sayur"
+                class="rounded-lg mb-4 w-full h-auto"
+              />
+              <h3 class="text-2xl font-bold mb-2">Nugget Sayur</h3>
+              <p class="text-gray-600">
+                Lezat dan sehat, kaya sayuran untuk anak-anak.
+              </p>
+            </div>
+          </div>
+        </div>
 
-            <!-- Value Proposition -->
-            <div class="mt-24 text-center">
-                <h2 class="text-3xl font-bold mb-12">Kenapa De Katzu?</h2>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white p-6 rounded-2xl shadow-lg">
-                        <div class="text-amber-500 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">🍳 Praktis</h3>
-                        <p class="text-gray-600">Tinggal goreng, siap saji dalam hitungan menit.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl shadow-lg">
-                        <div class="text-amber-500 mb-4">
-                           <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.29 15.29l-3.5-3.5a1 1 0 011.42-1.42l2.58 2.58 5.58-5.58a1 1 0 011.42 1.42l-6.5 6.5a1 1 0 01-1.42 0z" /></svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">🥦 Sehat</h3>
-                        <p class="text-gray-600">Diperkaya sayuran segar, tanpa bahan pengawet.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl shadow-lg">
-                         <div class="text-amber-500 mb-4">
-                           <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01" /></svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">💰 Terjangkau</h3>
-                        <p class="text-gray-600">Rasa restoran, harga kaki lima.</p>
-                    </div>
-                </div>
+        <!-- Value Proposition -->
+        <div class="mt-24 text-center">
+          <h2 class="text-3xl font-bold mb-12">Kenapa De Katzu?</h2>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-2xl shadow-lg">
+              <div class="text-amber-500 mb-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-12 w-12 mx-auto"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold mb-2">🍳 Praktis</h3>
+              <p class="text-gray-600">
+                Tinggal goreng, siap saji dalam hitungan menit.
+              </p>
             </div>
-        </section>
+            <div class="bg-white p-6 rounded-2xl shadow-lg">
+              <div class="text-amber-500 mb-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-12 w-12 mx-auto"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.29 15.29l-3.5-3.5a1 1 0 011.42-1.42l2.58 2.58 5.58-5.58a1 1 0 011.42 1.42l-6.5 6.5a1 1 0 01-1.42 0z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold mb-2">🥦 Sehat</h3>
+              <p class="text-gray-600">
+                Diperkaya sayuran segar, tanpa bahan pengawet.
+              </p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-lg">
+              <div class="text-amber-500 mb-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-12 w-12 mx-auto"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold mb-2">💰 Terjangkau</h3>
+              <p class="text-gray-600">Rasa restoran, harga kaki lima.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <!-- Konten Halaman Tentang Kami -->
-        <section id="tentang" class="page-content fade-in" data-page="tentang">
-            <div class="text-center">
-                <h2 class="text-4xl font-bold mb-4">Cerita dari Dapur Kecil Kami</h2>
-            </div>
-            <div class="flex flex-col lg:flex-row items-center gap-12 mt-12">
-                <div class="lg:w-1/2">
-                    <img src="https://i.ibb.co.com/SwqVnCNx/Chat-GPT-Image-Oct-1-2025-07-47-06-PM.png" alt="Dapur rumahan De Katzu" class="rounded-2xl shadow-xl w-full h-auto">
-                </div>
-                <div class="lg:w-1/2">
-                    <p class="text-gray-600 leading-relaxed mb-6">
-                        De Katzu lahir dari dapur sederhana di Tangerang Selatan. Awalnya hanya untuk keluarga, kini kami ingin berbagi kelezatan chicken katsu dan nugget sehat ke lebih banyak meja makan. Kami percaya makanan praktis tak harus mahal, dan makanan sehat tak harus ribet.
-                    </p>
-                    <h3 class="text-2xl font-bold mb-3">Visi & Misi Kami</h3>
-                    <ul class="list-disc list-inside text-gray-600 space-y-2">
-                        <li>Menyajikan makanan beku berkualitas tinggi dengan rasa yang otentik.</li>
-                        <li>Membuat makanan sehat dan praktis dapat diakses oleh semua keluarga.</li>
-                        <li>Mendukung gaya hidup sehat tanpa mengorbankan kelezatan.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+      <!-- Konten Halaman Tentang Kami -->
+      <section id="tentang" class="page-content fade-in" data-page="tentang">
+        <div class="text-center">
+          <h2 class="text-4xl font-bold mb-4">Cerita dari Dapur Kecil Kami</h2>
+        </div>
+        <div class="flex flex-col lg:flex-row items-center gap-12 mt-12">
+          <div class="lg:w-1/2">
+            <img
+              src="https://i.ibb.co.com/SwqVnCNx/Chat-GPT-Image-Oct-1-2025-07-47-06-PM.png"
+              alt="Dapur rumahan De Katzu"
+              class="rounded-2xl shadow-xl w-full h-auto"
+            />
+          </div>
+          <div class="lg:w-1/2">
+            <p class="text-gray-600 leading-relaxed mb-6">
+              De Katzu lahir dari dapur sederhana di Tangerang Selatan. Awalnya
+              hanya untuk keluarga, kini kami ingin berbagi kelezatan chicken
+              katsu dan nugget sehat ke lebih banyak meja makan. Kami percaya
+              makanan praktis tak harus mahal, dan makanan sehat tak harus
+              ribet.
+            </p>
+            <h3 class="text-2xl font-bold mb-3">Visi & Misi Kami</h3>
+            <ul class="list-disc list-inside text-gray-600 space-y-2">
+              <li>
+                Menyajikan makanan beku berkualitas tinggi dengan rasa yang
+                otentik.
+              </li>
+              <li>
+                Membuat makanan sehat dan praktis dapat diakses oleh semua
+                keluarga.
+              </li>
+              <li>Mendukung gaya hidup sehat tanpa mengorbankan kelezatan.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-        <!-- Konten Halaman Produk -->
-        <section id="produk" class="page-content fade-in" data-page="produk">
-            <div class="text-center">
-                <h2 class="text-4xl font-bold mb-12">Produk Andalan Kami</h2>
+      <!-- Konten Halaman Produk -->
+      <section id="produk" class="page-content fade-in" data-page="produk">
+        <div class="text-center">
+          <h2 class="text-4xl font-bold mb-12">Produk Andalan Kami</h2>
+        </div>
+        <div class="space-y-16">
+          <!-- Produk 1: Chicken Katsu -->
+          <div
+            class="bg-white rounded-2xl shadow-lg p-8 flex flex-col md:flex-row gap-8 items-center relative overflow-hidden"
+          >
+            <div
+              class="absolute -top-4 -left-4 bg-red-500 text-white text-sm font-bold px-8 py-4 transform -rotate-45"
+            >
+              Terbatas!
             </div>
-            <div class="space-y-16">
-                <!-- Produk 1: Chicken Katsu -->
-                <div class="bg-white rounded-2xl shadow-lg p-8 flex flex-col md:flex-row gap-8 items-center relative overflow-hidden">
-                    <div class="absolute -top-4 -left-4 bg-red-500 text-white text-sm font-bold px-8 py-4 transform -rotate-45">Terbatas!</div>
-                    <div class="md:w-1/3">
-                        <img src="https://i.ibb.co.com/B5Zpv58f/Chiken-katsu-homemade-by-me-600gr-50k-PO-h-2-untuk-menjaga-kesegaran-hasilnya-No-pengawet.jpg" alt="Chicken Katsu" class="rounded-lg w-full h-auto">
-                    </div>
-                    <div class="md:w-2/3">
-                        <h3 class="text-3xl font-bold">Chicken Katsu</h3>
-                        <p class="text-gray-500 mt-2">500gr / ±5 potong</p>
-                        <p class="mt-4 text-gray-700">Gurih, juicy, dan krispi seperti di restoran Jepang favoritmu. Dibuat dari dada ayam pilihan dan bumbu rahasia keluarga.</p>
-                        <div class="mt-4 flex items-baseline gap-4">
-                            <span class="text-2xl font-bold text-amber-600">Rp 45.000</span>
-                            <a href="https://wa.me/6281234567890?text=Halo%20De%20Katzu,%20saya%20mau%20pesan%20Chicken%20Katsu." target="_blank" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105">Pesan Sekarang</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Produk 2: Nugget Sayur -->
-                <div class="bg-white rounded-2xl shadow-lg p-8 flex flex-col md:flex-row gap-8 items-center relative overflow-hidden">
-                     <div class="absolute -top-4 -left-4 bg-red-500 text-white text-sm font-bold px-8 py-4 transform -rotate-45">Terbatas!</div>
-                    <div class="md:w-1/3">
-                        <img src="https://i.ibb.co.com/hx14B3vc/273538653-628798268233040-5724053253608695181-n.jpg~" alt="Nugget Sayur" class="rounded-lg w-full h-auto">
-                    </div>
-                    <div class="md:w-2/3">
-                        <h3 class="text-3xl font-bold">Nugget Sayur</h3>
-                        <p class="text-gray-500 mt-2">400gr / ±15 pcs</p>
-                        <p class="mt-4 text-gray-700">Campuran ayam segar dan sayuran (kol, wortel) yang disukai anak-anak. Cara mudah penuhi nutrisi si kecil.</p>
-                        <div class="mt-4 flex items-baseline gap-4">
-                            <span class="text-2xl font-bold text-amber-600">Rp 38.000</span>
-                            <a href="https://wa.me/6281234567890?text=Halo%20De%20Katzu,%20saya%20mau%20pesan%20Nugget%20Sayur." target="_blank" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105">Pesan Sekarang</a>
-                        </div>
-                    </div>
-                </div>
-                 <p class="text-center text-sm text-red-600 font-semibold">Produksi terbatas, hanya 5 kemasan per jenis produk setiap minggunya untuk menjaga kualitas.</p>
+            <div class="md:w-1/3">
+              <img
+                src="https://i.ibb.co.com/B5Zpv58f/Chiken-katsu-homemade-by-me-600gr-50k-PO-h-2-untuk-menjaga-kesegaran-hasilnya-No-pengawet.jpg"
+                alt="Chicken Katsu"
+                class="rounded-lg w-full h-auto"
+              />
             </div>
-        </section>
+            <div class="md:w-2/3">
+              <h3 class="text-3xl font-bold">Chicken Katsu</h3>
+              <p class="text-gray-500 mt-2">500gr / ±5 potong</p>
+              <p class="mt-4 text-gray-700">
+                Gurih, juicy, dan krispi seperti di restoran Jepang favoritmu.
+                Dibuat dari dada ayam pilihan dan bumbu rahasia keluarga.
+              </p>
+              <div class="mt-4 flex items-baseline gap-4">
+                <span class="text-2xl font-bold text-amber-600">Rp 45.000</span>
+                <a
+                  href="https://wa.me/6281234567890?text=Halo%20De%20Katzu,%20saya%20mau%20pesan%20Chicken%20Katsu."
+                  target="_blank"
+                  class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105"
+                  >Pesan Sekarang</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Produk 2: Nugget Sayur -->
+          <div
+            class="bg-white rounded-2xl shadow-lg p-8 flex flex-col md:flex-row gap-8 items-center relative overflow-hidden"
+          >
+            <div
+              class="absolute -top-4 -left-4 bg-red-500 text-white text-sm font-bold px-8 py-4 transform -rotate-45"
+            >
+              Terbatas!
+            </div>
+            <div class="md:w-1/3">
+              <img
+                src="https://i.ibb.co.com/hx14B3vc/273538653-628798268233040-5724053253608695181-n.jpg~"
+                alt="Nugget Sayur"
+                class="rounded-lg w-full h-auto"
+              />
+            </div>
+            <div class="md:w-2/3">
+              <h3 class="text-3xl font-bold">Nugget Sayur</h3>
+              <p class="text-gray-500 mt-2">400gr / ±15 pcs</p>
+              <p class="mt-4 text-gray-700">
+                Campuran ayam segar dan sayuran (kol, wortel) yang disukai
+                anak-anak. Cara mudah penuhi nutrisi si kecil.
+              </p>
+              <div class="mt-4 flex items-baseline gap-4">
+                <span class="text-2xl font-bold text-amber-600">Rp 38.000</span>
+                <a
+                  href="https://wa.me/6281234567890?text=Halo%20De%20Katzu,%20saya%20mau%20pesan%20Nugget%20Sayur."
+                  target="_blank"
+                  class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105"
+                  >Pesan Sekarang</a
+                >
+              </div>
+            </div>
+          </div>
+          <p class="text-center text-sm text-red-600 font-semibold">
+            Produksi terbatas, hanya 5 kemasan per jenis produk setiap minggunya
+            untuk menjaga kualitas.
+          </p>
+        </div>
+      </section>
 
-        <!-- Konten Halaman Cara Pesan -->
-        <section id="pesan" class="page-content fade-in" data-page="pesan">
-            <div class="text-center">
-                <h2 class="text-4xl font-bold mb-12">Mudahnya Pesan di De Katzu</h2>
+      <!-- Konten Halaman Cara Pesan -->
+      <section id="pesan" class="page-content fade-in" data-page="pesan">
+        <div class="text-center">
+          <h2 class="text-4xl font-bold mb-12">Mudahnya Pesan di De Katzu</h2>
+        </div>
+        <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8 text-center">
+          <div class="bg-white p-6 rounded-2xl shadow-lg">
+            <div
+              class="bg-amber-100 text-amber-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4"
+            >
+              <span class="text-2xl font-bold">1</span>
             </div>
-            <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8 text-center">
-                <div class="bg-white p-6 rounded-2xl shadow-lg">
-                    <div class="bg-amber-100 text-amber-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
-                        <span class="text-2xl font-bold">1</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Chat via WhatsApp</h3>
-                    <p class="text-gray-600">Hubungi kami melalui tombol WhatsApp yang tersedia.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-lg">
-                    <div class="bg-amber-100 text-amber-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
-                        <span class="text-2xl font-bold">2</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Konfirmasi Pesanan</h3>
-                    <p class="text-gray-600">Konfirmasi ketersediaan stok dan alamat pengiriman.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-lg">
-                    <div class="bg-amber-100 text-amber-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
-                         <span class="text-2xl font-bold">3</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Pesanan Dikirim</h3>
-                    <p class="text-gray-600">Pesanan akan dikirim via kurir instan (Grab/Gojek).</p>
-                </div>
+            <h3 class="text-xl font-semibold mb-2">Chat via WhatsApp</h3>
+            <p class="text-gray-600">
+              Hubungi kami melalui tombol WhatsApp yang tersedia.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl shadow-lg">
+            <div
+              class="bg-amber-100 text-amber-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4"
+            >
+              <span class="text-2xl font-bold">2</span>
             </div>
-             <div class="mt-12 bg-amber-100 border-l-4 border-amber-500 text-amber-800 p-4 rounded-lg">
-                <p class="font-bold">Info Tambahan:</p>
-                <p>Area layanan utama kami adalah Tangerang Selatan. Kami juga melayani pengiriman ke area sekitar Jabodetabek dengan penyesuaian ongkos kirim.</p>
+            <h3 class="text-xl font-semibold mb-2">Konfirmasi Pesanan</h3>
+            <p class="text-gray-600">
+              Konfirmasi ketersediaan stok dan alamat pengiriman.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl shadow-lg">
+            <div
+              class="bg-amber-100 text-amber-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4"
+            >
+              <span class="text-2xl font-bold">3</span>
             </div>
-        </section>
+            <h3 class="text-xl font-semibold mb-2">Pesanan Dikirim</h3>
+            <p class="text-gray-600">
+              Pesanan akan dikirim via kurir instan (Grab/Gojek).
+            </p>
+          </div>
+        </div>
+        <div
+          class="mt-12 bg-amber-100 border-l-4 border-amber-500 text-amber-800 p-4 rounded-lg"
+        >
+          <p class="font-bold">Info Tambahan:</p>
+          <p>
+            Area layanan utama kami adalah Tangerang Selatan. Kami juga melayani
+            pengiriman ke area sekitar Jabodetabek dengan penyesuaian ongkos
+            kirim.
+          </p>
+        </div>
+      </section>
 
-        <!-- Konten Halaman Testimoni -->
-        <section id="testimoni" class="page-content fade-in" data-page="testimoni">
-             <div class="text-center">
-                <h2 class="text-4xl font-bold mb-12">Kata Pelanggan Setia Kami</h2>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-2xl shadow-lg">
-                    <p class="text-gray-700 italic">"Anak saya suka banget nugget sayurnya! Nggak sadar kalau lagi makan sayur, hehe."</p>
-                    <p class="mt-4 font-bold text-right">- Ibu N.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-lg">
-                    <p class="text-gray-700 italic">"Katsu-nya gurih, dagingnya tebal. Anak-anak sampai rebutan. Praktis banget buat stok lauk."</p>
-                    <p class="mt-4 font-bold text-right">- Ibu D.</p>
-                </div>
-                 <div class="bg-white p-6 rounded-2xl shadow-lg">
-                    <p class="text-gray-700 italic">"Akhirnya nemu frozen food yang rasanya nggak kayak makanan beku. Beneran rasa restoran!"</p>
-                    <p class="mt-4 font-bold text-right">- Kak R.</p>
-                </div>
-            </div>
-            <div class="mt-12 grid md:grid-cols-2 gap-8 items-center">
-                 <img src="https://i.ibb.co.com/9HMY75Rb/Bismillah-pagi-ini-Chiken-katsu-by-myhandmade-2.jpg" alt="Hasil masakan pelanggan" class="rounded-lg shadow-md w-full h-auto">
-                  <img src="https://i.ibb.co.com/FbGGK9d3/Cocok-u-sarapan-pagi-atw-bento-anak2-sekolah-chikenkatsubento-chikenkatsufrozen-chikenkatsu.jpg" alt="Nugget disajikan" class="rounded-lg shadow-md w-full h-auto">
-            </div>
-        </section>
+      <!-- Konten Halaman Testimoni -->
+      <section
+        id="testimoni"
+        class="page-content fade-in"
+        data-page="testimoni"
+      >
+        <div class="text-center">
+          <h2 class="text-4xl font-bold mb-12">Kata Pelanggan Setia Kami</h2>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white p-6 rounded-2xl shadow-lg">
+            <p class="text-gray-700 italic">
+              "Anak saya suka banget nugget sayurnya! Nggak sadar kalau lagi
+              makan sayur, hehe."
+            </p>
+            <p class="mt-4 font-bold text-right">- Ibu N.</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl shadow-lg">
+            <p class="text-gray-700 italic">
+              "Katsu-nya gurih, dagingnya tebal. Anak-anak sampai rebutan.
+              Praktis banget buat stok lauk."
+            </p>
+            <p class="mt-4 font-bold text-right">- Ibu D.</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl shadow-lg">
+            <p class="text-gray-700 italic">
+              "Akhirnya nemu frozen food yang rasanya nggak kayak makanan beku.
+              Beneran rasa restoran!"
+            </p>
+            <p class="mt-4 font-bold text-right">- Kak R.</p>
+          </div>
+        </div>
+        <div class="mt-12 grid md:grid-cols-2 gap-8 items-center">
+          <img
+            src="https://i.ibb.co.com/9HMY75Rb/Bismillah-pagi-ini-Chiken-katsu-by-myhandmade-2.jpg"
+            alt="Hasil masakan pelanggan"
+            class="rounded-lg shadow-md w-full h-auto"
+          />
+          <img
+            src="https://i.ibb.co.com/FbGGK9d3/Cocok-u-sarapan-pagi-atw-bento-anak2-sekolah-chikenkatsubento-chikenkatsufrozen-chikenkatsu.jpg"
+            alt="Nugget disajikan"
+            class="rounded-lg shadow-md w-full h-auto"
+          />
+        </div>
+      </section>
 
-        <!-- Daftar Blog -->
-        <section id="blog" class="page-content fade-in" data-page="blog">
-             <div class="text-center">
-                <h2 class="text-4xl font-bold mb-12">Tips & Resep Frozen Food</h2>
+      <!-- Daftar Blog -->
+      <section id="blog" class="page-content fade-in" data-page="blog">
+        <div class="text-center">
+          <h2 class="text-4xl font-bold mb-12">Tips & Resep Frozen Food</h2>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Blog 1 -->
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <img
+              src="https://cdn.antaranews.com/cache/1200x800/2022/07/26/IMG_20220726_184642_406.jpg.webp"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="font-bold text-lg mb-2">
+                5 Cara Menyimpan Frozen Food agar Tahan Lebih Lama
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Menyimpan frozen food dengan benar adalah kunci agar kualitas
+                rasa dan teksturnya tetap terjaga...
+              </p>
+              <a
+                href="#blog-post-1"
+                class="text-amber-600 hover:underline page-switcher"
+                data-page="blog-post-1"
+                >Baca Selengkapnya &rarr;</a
+              >
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Blog 1 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <img src="https://placehold.co/400x250/FCD34D/333333?text=Tips+Menyimpan" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="font-bold text-lg mb-2">5 Cara Menyimpan Frozen Food agar Tahan Lebih Lama</h3>
-                        <p class="text-gray-600 text-sm mb-4">Menyimpan frozen food dengan benar adalah kunci agar kualitas rasa dan teksturnya tetap terjaga...</p>
-                        <a href="#blog-post-1" class="text-amber-600 hover:underline page-switcher" data-page="blog-post-1">Baca Selengkapnya &rarr;</a>
-                    </div>
-                </div>
-                <!-- Blog 2 -->
-                 <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <img src="https://placehold.co/400x250/FBBF24/333333?text=Resep+Bento" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="font-bold text-lg mb-2">Resep Bento Anak dengan Nugget Sayur De Katzu</h3>
-                        <p class="text-gray-600 text-sm mb-4">Bingung siapkan bekal untuk si kecil? Coba resep bento lucu dan sehat dengan nugget sayur andalan kami...</p>
-                        <a href="#blog-post-2" class="text-amber-600 hover:underline page-switcher" data-page="blog-post-2">Baca Selengkapnya &rarr;</a>
-                    </div>
-                </div>
-                <!-- Blog 3 -->
-                 <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <img src="https://placehold.co/400x250/F59E0B/FFFFFF?text=Menu+Praktis" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="font-bold text-lg mb-2">Kenapa Chicken Katsu Cocok Jadi Menu Praktis Sehari-hari?</h3>
-                        <p class="text-gray-600 text-sm mb-4">Dari makan siang hingga makan malam, chicken katsu bisa jadi penyelamat di kala lapar melanda...</p>
-                        <a href="#blog-post-3" class="text-amber-600 hover:underline page-switcher" data-page="blog-post-3">Baca Selengkapnya &rarr;</a>
-                    </div>
-                </div>
-                <!-- Blog 4 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <img src="https://placehold.co/400x250/D97706/FFFFFF?text=Kreasi+Unik" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="font-bold text-lg mb-2">Kreasi Unik Chicken Katsu untuk Bekal Sekolah</h3>
-                        <p class="text-gray-600 text-sm mb-4">Bosan dengan bekal yang itu-itu saja? Sulap chicken katsu menjadi katsu sando atau topping donburi...</p>
-                        <a href="#blog-post-4" class="text-amber-600 hover:underline page-switcher" data-page="blog-post-4">Baca Selengkapnya &rarr;</a>
-                    </div>
-                </div>
-                <!-- Blog 5 -->
-                 <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <img src="https://placehold.co/400x250/B45309/FFFFFF?text=Tips+Menggoreng" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="font-bold text-lg mb-2">Tips Menggoreng Frozen Food Agar Krispi Sempurna</h3>
-                        <p class="text-gray-600 text-sm mb-4">Dapatkan hasil gorengan yang renyah di luar dan lembut di dalam dengan beberapa trik sederhana ini...</p>
-                        <a href="#blog-post-5" class="text-amber-600 hover:underline page-switcher" data-page="blog-post-5">Baca Selengkapnya &rarr;</a>
-                    </div>
-                </div>
-                <!-- Blog 6 -->
-                 <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <img src="https://placehold.co/400x250/92400E/FFFFFF?text=Sejarah+Katsu" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="font-bold text-lg mb-2">Sejarah Singkat Chicken Katsu di Indonesia</h3>
-                        <p class="text-gray-600 text-sm mb-4">Bagaimana hidangan asal Jepang ini bisa begitu populer dan menjadi favorit banyak orang di tanah air...</p>
-                        <a href="#blog-post-6" class="text-amber-600 hover:underline page-switcher" data-page="blog-post-6">Baca Selengkapnya &rarr;</a>
-                    </div>
-                </div>
+          </div>
+          <!-- Blog 2 -->
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <img
+              src="https://www.topwisata.info/wp-content/uploads/2025/09/Nugget-Sayur-Homemade-930x620.jpg"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="font-bold text-lg mb-2">
+                Resep Bento Anak dengan Nugget Sayur De Katzu
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Bingung siapkan bekal untuk si kecil? Coba resep bento lucu dan
+                sehat dengan nugget sayur andalan kami...
+              </p>
+              <a
+                href="#blog-post-2"
+                class="text-amber-600 hover:underline page-switcher"
+                data-page="blog-post-2"
+                >Baca Selengkapnya &rarr;</a
+              >
             </div>
-        </section>
+          </div>
+          <!-- Blog 3 -->
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <img
+              src="https://image.idntimes.com/post/20250407/whatsapp-image-2025-04-07-at-152803-39cf38dd0d5fe5cd7d7973c7c5c2cff8-0d32df24f1f375d677e7dc89979162c6.jpeg"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="font-bold text-lg mb-2">
+                Kenapa Chicken Katsu Cocok Jadi Menu Praktis Sehari-hari?
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Dari makan siang hingga makan malam, chicken katsu bisa jadi
+                penyelamat di kala lapar melanda...
+              </p>
+              <a
+                href="#blog-post-3"
+                class="text-amber-600 hover:underline page-switcher"
+                data-page="blog-post-3"
+                >Baca Selengkapnya &rarr;</a
+              >
+            </div>
+          </div>
+          <!-- Blog 4 -->
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <img
+              src="https://mizkanflavors.com/wp-content/uploads/2020/03/Mizkan_crop_ChickenKatsuBento.jpg"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="font-bold text-lg mb-2">
+                Kreasi Unik Chicken Katsu untuk Bekal Sekolah
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Bosan dengan bekal yang itu-itu saja? Sulap chicken katsu
+                menjadi katsu sando atau topping donburi...
+              </p>
+              <a
+                href="#blog-post-4"
+                class="text-amber-600 hover:underline page-switcher"
+                data-page="blog-post-4"
+                >Baca Selengkapnya &rarr;</a
+              >
+            </div>
+          </div>
+          <!-- Blog 5 -->
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <img
+              src="https://www.tastingtable.com/img/gallery/minimum-6-absolute-best-cuts-of-meat-to-deep-fry/l-intro-1690972987.jpg"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="font-bold text-lg mb-2">
+                Tips Menggoreng Frozen Food Agar Krispi Sempurna
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Dapatkan hasil gorengan yang renyah di luar dan lembut di dalam
+                dengan beberapa trik sederhana ini...
+              </p>
+              <a
+                href="#blog-post-5"
+                class="text-amber-600 hover:underline page-switcher"
+                data-page="blog-post-5"
+                >Baca Selengkapnya &rarr;</a
+              >
+            </div>
+          </div>
+          <!-- Blog 6 -->
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <img
+              src="https://static.promediateknologi.id/crop/12x202:1079x1943/750x500/webp/photo/p1/1005/2024/01/01/Screenshot_20240101_221226_Instagram-2964426419.jpg"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="font-bold text-lg mb-2">
+                Sejarah Singkat Chicken Katsu di Indonesia
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Bagaimana hidangan asal Jepang ini bisa begitu populer dan
+                menjadi favorit banyak orang di tanah air...
+              </p>
+              <a
+                href="#blog-post-6"
+                class="text-amber-600 hover:underline page-switcher"
+                data-page="blog-post-6"
+                >Baca Selengkapnya &rarr;</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <!-- Konten Halaman FAQ -->
-        <section id="faq" class="page-content fade-in" data-page="faq">
-            <div class="text-center">
-                <h2 class="text-4xl font-bold mb-12">Pertanyaan yang Sering Diajukan</h2>
+      <!-- Konten Halaman FAQ -->
+      <section id="faq" class="page-content fade-in" data-page="faq">
+        <div class="text-center">
+          <h2 class="text-4xl font-bold mb-12">
+            Pertanyaan yang Sering Diajukan
+          </h2>
+        </div>
+        <div class="max-w-3xl mx-auto space-y-4">
+          <div class="faq-item bg-white rounded-lg shadow-md">
+            <button
+              class="faq-question w-full text-left p-4 font-semibold flex justify-between items-center"
+            >
+              <span>Berapa lama produk bisa disimpan?</span>
+              <svg
+                class="w-5 h-5 transform transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </button>
+            <div
+              class="faq-answer hidden p-4 border-t border-gray-200 text-gray-600"
+            >
+              Produk kami dapat bertahan 2–3 minggu di dalam freezer dalam
+              keadaan beku dan kemasan tertutup rapat.
             </div>
-            <div class="max-w-3xl mx-auto space-y-4">
-                <div class="faq-item bg-white rounded-lg shadow-md">
-                    <button class="faq-question w-full text-left p-4 font-semibold flex justify-between items-center">
-                        <span>Berapa lama produk bisa disimpan?</span>
-                        <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="faq-answer hidden p-4 border-t border-gray-200 text-gray-600">
-                        Produk kami dapat bertahan 2–3 minggu di dalam freezer dalam keadaan beku dan kemasan tertutup rapat.
-                    </div>
-                </div>
-                 <div class="faq-item bg-white rounded-lg shadow-md">
-                    <button class="faq-question w-full text-left p-4 font-semibold flex justify-between items-center">
-                        <span>Apakah semua produk halal?</span>
-                        <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="faq-answer hidden p-4 border-t border-gray-200 text-gray-600">
-                        Ya, kami menjamin semua bahan baku yang kami gunakan adalah bahan-bahan halal dan diolah di dapur yang bersih.
-                    </div>
-                </div>
-                 <div class="faq-item bg-white rounded-lg shadow-md">
-                    <button class="faq-question w-full text-left p-4 font-semibold flex justify-between items-center">
-                        <span>Apakah bisa request khusus (misal, nugget tanpa sayur)?</span>
-                         <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="faq-answer hidden p-4 border-t border-gray-200 text-gray-600">
-                        Saat ini kami belum menyediakan opsi kustomisasi produk. Namun, kami selalu terbuka untuk masukan!
-                    </div>
-                </div>
-                 <div class="faq-item bg-white rounded-lg shadow-md">
-                    <button class="faq-question w-full text-left p-4 font-semibold flex justify-between items-center">
-                        <span>Apakah bisa bayar di tempat (COD)?</span>
-                         <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="faq-answer hidden p-4 border-t border-gray-200 text-gray-600">
-                       Bisa, jika driver kurir (Gojek/Grab) menyediakan layanan tersebut. Pembayaran langsung dilakukan kepada driver.
-                    </div>
-                </div>
+          </div>
+          <div class="faq-item bg-white rounded-lg shadow-md">
+            <button
+              class="faq-question w-full text-left p-4 font-semibold flex justify-between items-center"
+            >
+              <span>Apakah semua produk halal?</span>
+              <svg
+                class="w-5 h-5 transform transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </button>
+            <div
+              class="faq-answer hidden p-4 border-t border-gray-200 text-gray-600"
+            >
+              Ya, kami menjamin semua bahan baku yang kami gunakan adalah
+              bahan-bahan halal dan diolah di dapur yang bersih.
             </div>
-        </section>
+          </div>
+          <div class="faq-item bg-white rounded-lg shadow-md">
+            <button
+              class="faq-question w-full text-left p-4 font-semibold flex justify-between items-center"
+            >
+              <span
+                >Apakah bisa request khusus (misal, nugget tanpa sayur)?</span
+              >
+              <svg
+                class="w-5 h-5 transform transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </button>
+            <div
+              class="faq-answer hidden p-4 border-t border-gray-200 text-gray-600"
+            >
+              Saat ini kami belum menyediakan opsi kustomisasi produk. Namun,
+              kami selalu terbuka untuk masukan!
+            </div>
+          </div>
+          <div class="faq-item bg-white rounded-lg shadow-md">
+            <button
+              class="faq-question w-full text-left p-4 font-semibold flex justify-between items-center"
+            >
+              <span>Apakah bisa bayar di tempat (COD)?</span>
+              <svg
+                class="w-5 h-5 transform transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </button>
+            <div
+              class="faq-answer hidden p-4 border-t border-gray-200 text-gray-600"
+            >
+              Bisa, jika driver kurir (Gojek/Grab) menyediakan layanan tersebut.
+              Pembayaran langsung dilakukan kepada driver.
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <!-- Konten Halaman Kontak -->
-        <section id="kontak" class="page-content fade-in text-center" data-page="kontak">
-            <h2 class="text-4xl font-bold mb-4">Hubungi Kami</h2>
-            <p class="text-gray-600 mb-8">Kami siap melayani pesanan Anda!</p>
-            <div class="bg-white p-8 rounded-2xl shadow-lg max-w-lg mx-auto">
-                <div class="space-y-4 text-left">
-                    <p><strong class="w-32 inline-block">Alamat:</strong> Pamulang, Tangerang Selatan, Banten</p>
-                    <p><strong class="w-32 inline-block">Instagram:</strong> <a href="https://instagram.com/de_katzu" target="_blank" class="text-amber-600 hover:underline">@de_katzu</a></p>
-                </div>
-                <a href="https://wa.me/6281234567890?text=Halo%20De%20Katzu,%20saya%20mau%20bertanya." target="_blank" class="mt-8 w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-transform transform hover:scale-105 flex items-center justify-center gap-2">
-                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.956-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.433-9.89-9.889-9.89-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.343 1.908 6.084l-1.161 4.225 4.273-1.12z"/></svg>
-                    <span>Hubungi via WhatsApp</span>
-                </a>
-            </div>
-        </section>
+      <!-- Konten Halaman Kontak -->
+      <section
+        id="kontak"
+        class="page-content fade-in text-center"
+        data-page="kontak"
+      >
+        <h2 class="text-4xl font-bold mb-4">Hubungi Kami</h2>
+        <p class="text-gray-600 mb-8">Kami siap melayani pesanan Anda!</p>
+        <div class="bg-white p-8 rounded-2xl shadow-lg max-w-lg mx-auto">
+          <div class="space-y-4 text-left">
+            <p>
+              <strong class="w-32 inline-block">Alamat:</strong> Pamulang,
+              Tangerang Selatan, Banten
+            </p>
+            <p>
+              <strong class="w-32 inline-block">Instagram:</strong>
+              <a
+                href="https://instagram.com/de_katzu"
+                target="_blank"
+                class="text-amber-600 hover:underline"
+                >@de_katzu</a
+              >
+            </p>
+          </div>
+          <a
+            href="https://wa.me/6281234567890?text=Halo%20De%20Katzu,%20saya%20mau%20bertanya."
+            target="_blank"
+            class="mt-8 w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-transform transform hover:scale-105 flex items-center justify-center gap-2"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.956-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.433-9.89-9.889-9.89-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.343 1.908 6.084l-1.161 4.225 4.273-1.12z"
+              />
+            </svg>
+            <span>Hubungi via WhatsApp</span>
+          </a>
+        </div>
+      </section>
 
-        <!-- KONTEN UNTUK SETIAP HALAMAN BLOG -->
-        <!-- Post 1 -->
-        <section id="blog-post-1" class="page-content fade-in" data-page="blog-post-1">
-            <div class="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
-                <a href="#blog" class="page-switcher text-amber-600 hover:underline mb-6 inline-block" data-page="blog">&larr; Kembali ke Blog</a>
-                <img src="https://placehold.co/400x250/FCD34D/333333?text=Tips+Menyimpan" class="w-full h-auto object-cover rounded-lg mb-6">
-                <h2 class="text-3xl font-bold mb-4">5 Cara Menyimpan Frozen Food agar Tahan Lebih Lama</h2>
-                <div class="text-gray-700 space-y-4">
-                    <p>Menyimpan frozen food dengan benar adalah kunci agar kualitas rasa, tekstur, dan nutrisinya tetap terjaga. Berikut adalah lima tips mudah yang bisa Anda ikuti:</p>
-                    <ol class="list-decimal list-inside space-y-2">
-                        <li><strong>Pastikan Suhu Freezer Stabil:</strong> Simpan frozen food pada suhu -18°C atau lebih rendah. Suhu yang stabil mencegah pembentukan kristal es besar yang bisa merusak tekstur makanan.</li>
-                        <li><strong>Gunakan Wadah Kedap Udara:</strong> Pindahkan produk dari kemasan yang sudah terbuka ke dalam wadah kedap udara atau plastik freezer zip-lock untuk mencegah *freezer burn* (kondisi makanan mengering).</li>
-                        <li><strong>Beri Label dan Tanggal:</strong> Selalu tulis nama produk dan tanggal penyimpanan pada wadah. Ini membantu Anda menerapkan sistem "First-In, First-Out" (FIFO), yaitu menggunakan stok terlama lebih dulu.</li>
-                        <li><strong>Jangan Penuhi Freezer Terlalu Padat:</strong> Beri sedikit ruang di antara produk agar udara dingin dapat bersirkulasi dengan baik dan membekukan makanan secara merata.</li>
-                        <li><strong>Hindari Membekukan Ulang:</strong> Makanan yang sudah dicairkan sebaiknya tidak dibekukan kembali karena dapat menurunkan kualitas dan meningkatkan risiko pertumbuhan bakteri.</li>
-                    </ol>
-                </div>
-            </div>
-        </section>
+      <!-- KONTEN UNTUK SETIAP HALAMAN BLOG -->
+      <!-- Post 1 -->
+      <section
+        id="blog-post-1"
+        class="page-content fade-in"
+        data-page="blog-post-1"
+      >
+        <div class="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+          <a
+            href="#blog"
+            class="page-switcher text-amber-600 hover:underline mb-6 inline-block"
+            data-page="blog"
+            >&larr; Kembali ke Blog</a
+          >
+          <img
+            src="https://cdn.antaranews.com/cache/1200x800/2022/07/26/IMG_20220726_184642_406.jpg.webp"
+            class="w-full h-auto object-cover rounded-lg mb-6"
+          />
+          <h2 class="text-3xl font-bold mb-4">
+            5 Cara Menyimpan Frozen Food agar Tahan Lebih Lama
+          </h2>
+          <div class="text-gray-700 space-y-4">
+            <p>
+              Menyimpan frozen food dengan benar adalah kunci agar kualitas
+              rasa, tekstur, dan nutrisinya tetap terjaga. Berikut adalah lima
+              tips mudah yang bisa Anda ikuti:
+            </p>
+            <ol class="list-decimal list-inside space-y-2">
+              <li>
+                <strong>Pastikan Suhu Freezer Stabil:</strong> Simpan frozen
+                food pada suhu -18°C atau lebih rendah. Suhu yang stabil
+                mencegah pembentukan kristal es besar yang bisa merusak tekstur
+                makanan.
+              </li>
+              <li>
+                <strong>Gunakan Wadah Kedap Udara:</strong> Pindahkan produk
+                dari kemasan yang sudah terbuka ke dalam wadah kedap udara atau
+                plastik freezer zip-lock untuk mencegah *freezer burn* (kondisi
+                makanan mengering).
+              </li>
+              <li>
+                <strong>Beri Label dan Tanggal:</strong> Selalu tulis nama
+                produk dan tanggal penyimpanan pada wadah. Ini membantu Anda
+                menerapkan sistem "First-In, First-Out" (FIFO), yaitu
+                menggunakan stok terlama lebih dulu.
+              </li>
+              <li>
+                <strong>Jangan Penuhi Freezer Terlalu Padat:</strong> Beri
+                sedikit ruang di antara produk agar udara dingin dapat
+                bersirkulasi dengan baik dan membekukan makanan secara merata.
+              </li>
+              <li>
+                <strong>Hindari Membekukan Ulang:</strong> Makanan yang sudah
+                dicairkan sebaiknya tidak dibekukan kembali karena dapat
+                menurunkan kualitas dan meningkatkan risiko pertumbuhan bakteri.
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
 
-        <!-- Post 2 -->
-        <section id="blog-post-2" class="page-content fade-in" data-page="blog-post-2">
-            <div class="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
-                <a href="#blog" class="page-switcher text-amber-600 hover:underline mb-6 inline-block" data-page="blog">&larr; Kembali ke Blog</a>
-                <img src="https://placehold.co/400x250/FBBF24/333333?text=Resep+Bento" class="w-full h-auto object-cover rounded-lg mb-6">
-                <h2 class="text-3xl font-bold mb-4">Resep Bento Anak dengan Nugget Sayur De Katzu</h2>
-                <div class="text-gray-700 space-y-4">
-                    <p>Membuat bekal anak jadi lebih seru dan sehat dengan Nugget Sayur De Katzu! Berikut ide resep bento yang praktis dan pasti disukai si kecil:</p>
-                    <p class="font-semibold">Bahan:</p>
-                    <ul class="list-disc list-inside">
-                        <li>4-5 pcs Nugget Sayur De Katzu, goreng hingga keemasan</li>
-                        <li>1 porsi nasi putih hangat</li>
-                        <li>Sedikit wortel dan brokoli, rebus sebentar</li>
-                        <li>1 lembar nori (rumput laut kering)</li>
-                        <li>Cetakan nasi bentuk lucu (opsional)</li>
-                    </ul>
-                    <p class="font-semibold">Cara Membuat:</p>
-                     <ol class="list-decimal list-inside space-y-2">
-                        <li>Cetak nasi menggunakan cetakan bentuk hewan atau bentuk favorit anak.</li>
-                        <li>Gunting nori untuk membuat mata dan mulut, lalu tempelkan pada nasi yang sudah dicetak.</li>
-                        <li>Susun nugget sayur, nasi, wortel, dan brokoli di dalam kotak bekal.</li>
-                        <li>Tata sedemikian rupa agar terlihat menarik. Bento sehat dan lezat siap dibawa ke sekolah!</li>
-                    </ol>
-                </div>
-            </div>
-        </section>
+      <!-- Post 2 -->
+      <section
+        id="blog-post-2"
+        class="page-content fade-in"
+        data-page="blog-post-2"
+      >
+        <div class="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+          <a
+            href="#blog"
+            class="page-switcher text-amber-600 hover:underline mb-6 inline-block"
+            data-page="blog"
+            >&larr; Kembali ke Blog</a
+          >
+          <img
+            src="https://www.topwisata.info/wp-content/uploads/2025/09/Nugget-Sayur-Homemade-930x620.jpg"
+            class="w-full h-auto object-cover rounded-lg mb-6"
+          />
+          <h2 class="text-3xl font-bold mb-4">
+            Resep Bento Anak dengan Nugget Sayur De Katzu
+          </h2>
+          <div class="text-gray-700 space-y-4">
+            <p>
+              Membuat bekal anak jadi lebih seru dan sehat dengan Nugget Sayur
+              De Katzu! Berikut ide resep bento yang praktis dan pasti disukai
+              si kecil:
+            </p>
+            <p class="font-semibold">Bahan:</p>
+            <ul class="list-disc list-inside">
+              <li>4-5 pcs Nugget Sayur De Katzu, goreng hingga keemasan</li>
+              <li>1 porsi nasi putih hangat</li>
+              <li>Sedikit wortel dan brokoli, rebus sebentar</li>
+              <li>1 lembar nori (rumput laut kering)</li>
+              <li>Cetakan nasi bentuk lucu (opsional)</li>
+            </ul>
+            <p class="font-semibold">Cara Membuat:</p>
+            <ol class="list-decimal list-inside space-y-2">
+              <li>
+                Cetak nasi menggunakan cetakan bentuk hewan atau bentuk favorit
+                anak.
+              </li>
+              <li>
+                Gunting nori untuk membuat mata dan mulut, lalu tempelkan pada
+                nasi yang sudah dicetak.
+              </li>
+              <li>
+                Susun nugget sayur, nasi, wortel, dan brokoli di dalam kotak
+                bekal.
+              </li>
+              <li>
+                Tata sedemikian rupa agar terlihat menarik. Bento sehat dan
+                lezat siap dibawa ke sekolah!
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
 
-        <!-- Post 3 -->
-        <section id="blog-post-3" class="page-content fade-in" data-page="blog-post-3">
-             <div class="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
-                <a href="#blog" class="page-switcher text-amber-600 hover:underline mb-6 inline-block" data-page="blog">&larr; Kembali ke Blog</a>
-                <img src="https://placehold.co/400x250/F59E0B/FFFFFF?text=Menu+Praktis" class="w-full h-auto object-cover rounded-lg mb-6">
-                <h2 class="text-3xl font-bold mb-4">Kenapa Chicken Katsu Cocok Jadi Menu Praktis Sehari-hari?</h2>
-                <div class="text-gray-700 space-y-4">
-                    <p>Di tengah kesibukan, menyiapkan makanan lezat dan bergizi seringkali menjadi tantangan. Chicken Katsu dari De Katzu hadir sebagai solusi sempurna. Mengapa?</p>
-                    <ul class="list-disc list-inside space-y-2">
-                        <li><strong>Sangat Cepat Disajikan:</strong> Hanya perlu beberapa menit untuk menggorengnya dari kondisi beku hingga matang sempurna. Sangat menghemat waktu di dapur.</li>
-                        <li><strong>Fleksibel:</strong> Bisa dinikmati dengan nasi dan salad, dijadikan isian sandwich (katsu sando), atau sebagai lauk pendamping mi instan. Satu produk untuk berbagai macam hidangan!</li>
-                        <li><strong>Disukai Semua Kalangan:</strong> Dari anak-anak hingga dewasa, hampir semua orang menyukai rasa gurih dan tekstur renyah dari chicken katsu.</li>
-                        <li><strong>Sumber Protein:</strong> Dibuat dari dada ayam pilihan, chicken katsu merupakan sumber protein yang baik untuk menunjang aktivitas harian.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Post 4 -->
-        <section id="blog-post-4" class="page-content fade-in" data-page="blog-post-4">
-             <div class="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
-                <a href="#blog" class="page-switcher text-amber-600 hover:underline mb-6 inline-block" data-page="blog">&larr; Kembali ke Blog</a>
-                <img src="https://placehold.co/400x250/D97706/FFFFFF?text=Kreasi+Unik" class="w-full h-auto object-cover rounded-lg mb-6">
-                <h2 class="text-3xl font-bold mb-4">Kreasi Unik Chicken Katsu untuk Bekal Sekolah</h2>
-                <div class="text-gray-700 space-y-4">
-                    <p>Bosan dengan bekal chicken katsu yang biasa? Coba tiga kreasi unik ini agar bekal si kecil jadi lebih istimewa!</p>
-                     <ol class="list-decimal list-inside space-y-2">
-                        <li><strong>Katsu Sando (Sandwich Katsu):</strong> Siapkan dua lembar roti tawar, olesi dengan saus tonkatsu atau mayones. Letakkan chicken katsu yang sudah digoreng di tengahnya. Potong pinggiran roti dan belah dua. Praktis dan mengenyangkan.</li>
-                        <li><strong>Katsu Donburi Bowl:</strong> Siapkan semangkuk nasi hangat. Iris chicken katsu dan tata di atas nasi. Siram dengan sedikit kecap asin Jepang dan taburi dengan irisan daun bawang atau biji wijen.</li>
-                        <li><strong>Katsu Bites Salad:</strong> Potong dadu chicken katsu yang sudah matang. Campurkan dengan selada, tomat ceri, dan jagung manis. Beri saus salad favorit anak. Bekal sehat dan penuh warna!</li>
-                    </ol>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Post 5 -->
-        <section id="blog-post-5" class="page-content fade-in" data-page="blog-post-5">
-            <div class="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
-                <a href="#blog" class="page-switcher text-amber-600 hover:underline mb-6 inline-block" data-page="blog">&larr; Kembali ke Blog</a>
-                <img src="https://placehold.co/400x250/B45309/FFFFFF?text=Tips+Menggoreng" class="w-full h-auto object-cover rounded-lg mb-6">
-                <h2 class="text-3xl font-bold mb-4">Tips Menggoreng Frozen Food Agar Krispi Sempurna</h2>
-                <div class="text-gray-700 space-y-4">
-                    <p>Mendapatkan hasil gorengan yang renyah sempurna dari produk beku terkadang sedikit tricky. Ikuti tips berikut ini:</p>
-                    <ul class="list-disc list-inside space-y-2">
-                        <li><strong>Gunakan Minyak yang Cukup:</strong> Pastikan produk terendam setidaknya setengah bagian saat digoreng (metode *shallow fry*) atau terendam seluruhnya (*deep fry*) untuk hasil terbaik.</li>
-                        <li><strong>Panaskan Minyak dengan Benar:</strong> Tunggu hingga minyak benar-benar panas (sekitar 170°C) sebelum memasukkan produk. Minyak yang kurang panas akan membuat makanan menyerap banyak minyak dan menjadi lembek.</li>
-                        <li><strong>Jangan Terlalu Penuh:</strong> Hindari menggoreng terlalu banyak produk dalam satu waktu. Ini akan menurunkan suhu minyak secara drastis dan membuat hasil gorengan tidak renyah.</li>
-                        <li><strong>Tiriskan dengan Baik:</strong> Setelah matang, angkat dan tiriskan produk di atas rak pendingin (cooling rack) bukan di atas tisu. Ini membuat uap panas bisa keluar dari semua sisi dan menjaga kerenyahannya.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Post 6 -->
-        <section id="blog-post-6" class="page-content fade-in" data-page="blog-post-6">
-            <div class="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
-                <a href="#blog" class="page-switcher text-amber-600 hover:underline mb-6 inline-block" data-page="blog">&larr; Kembali ke Blog</a>
-                <img src="https://placehold.co/400x250/92400E/FFFFFF?text=Sejarah+Katsu" class="w-full h-auto object-cover rounded-lg mb-6">
-                <h2 class="text-3xl font-bold mb-4">Sejarah Singkat Chicken Katsu di Indonesia</h2>
-                 <div class="text-gray-700 space-y-4">
-                    <p>Chicken Katsu, atau yang dikenal di Jepang sebagai *'チキンカツ'* (chikinkatsu), adalah hidangan populer yang kini mudah ditemui di berbagai restoran dan rumah di Indonesia. Tapi, bagaimana perjalanannya?</p>
-                    <p>Katsu sebenarnya adalah adaptasi Jepang dari hidangan Eropa, yaitu *schnitzel*. Pada akhir abad ke-19, hidangan daging yang dilapisi tepung roti dan digoreng ini diperkenalkan di Jepang. Versi paling awal dan terkenalnya adalah *tonkatsu*, yang menggunakan daging babi.</p>
-                    <p>Seiring berjalannya waktu dan menyebarnya kuliner Jepang ke seluruh dunia, variasi katsu pun berkembang. Chicken katsu lahir sebagai alternatif yang populer, terutama di negara-negara dengan mayoritas penduduk Muslim seperti Indonesia. Rasanya yang gurih, teksturnya yang renyah, dan harganya yang lebih terjangkau membuat chicken katsu cepat diterima dan menjadi salah satu menu favorit keluarga Indonesia.</p>
-                </div>
-            </div>
-        </section>
-        
+      <!-- Post 3 -->
+      <section
+        id="blog-post-3"
+        class="page-content fade-in"
+        data-page="blog-post-3"
+      >
+        <div class="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+          <a
+            href="#blog"
+            class="page-switcher text-amber-600 hover:underline mb-6 inline-block"
+            data-page="blog"
+            >&larr; Kembali ke Blog</a
+          >
+          <img
+            src="https://image.idntimes.com/post/20250407/whatsapp-image-2025-04-07-at-152803-39cf38dd0d5fe5cd7d7973c7c5c2cff8-0d32df24f1f375d677e7dc89979162c6.jpeg"
+            class="w-full h-auto object-cover rounded-lg mb-6"
+          />
+          <h2 class="text-3xl font-bold mb-4">
+            Kenapa Chicken Katsu Cocok Jadi Menu Praktis Sehari-hari?
+          </h2>
+          <div class="text-gray-700 space-y-4">
+            <p>
+              Di tengah kesibukan, menyiapkan makanan lezat dan bergizi
+              seringkali menjadi tantangan. Chicken Katsu dari De Katzu hadir
+              sebagai solusi sempurna. Mengapa?
+            </p>
+            <ul class="list-disc list-inside space-y-2">
+              <li>
+                <strong>Sangat Cepat Disajikan:</strong> Hanya perlu beberapa
+                menit untuk menggorengnya dari kondisi beku hingga matang
+                sempurna. Sangat menghemat waktu di dapur.
+              </li>
+              <li>
+                <strong>Fleksibel:</strong> Bisa dinikmati dengan nasi dan
+                salad, dijadikan isian sandwich (katsu sando), atau sebagai lauk
+                pendamping mi instan. Satu produk untuk berbagai macam hidangan!
+              </li>
+              <li>
+                <strong>Disukai Semua Kalangan:</strong> Dari anak-anak hingga
+                dewasa, hampir semua orang menyukai rasa gurih dan tekstur
+                renyah dari chicken katsu.
+              </li>
+              <li>
+                <strong>Sumber Protein:</strong> Dibuat dari dada ayam pilihan,
+                chicken katsu merupakan sumber protein yang baik untuk menunjang
+                aktivitas harian.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Post 4 -->
+      <section
+        id="blog-post-4"
+        class="page-content fade-in"
+        data-page="blog-post-4"
+      >
+        <div class="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+          <a
+            href="#blog"
+            class="page-switcher text-amber-600 hover:underline mb-6 inline-block"
+            data-page="blog"
+            >&larr; Kembali ke Blog</a
+          >
+          <img
+            src="https://mizkanflavors.com/wp-content/uploads/2020/03/Mizkan_crop_ChickenKatsuBento.jpg"
+            class="w-full h-auto object-cover rounded-lg mb-6"
+          />
+          <h2 class="text-3xl font-bold mb-4">
+            Kreasi Unik Chicken Katsu untuk Bekal Sekolah
+          </h2>
+          <div class="text-gray-700 space-y-4">
+            <p>
+              Bosan dengan bekal chicken katsu yang biasa? Coba tiga kreasi unik
+              ini agar bekal si kecil jadi lebih istimewa!
+            </p>
+            <ol class="list-decimal list-inside space-y-2">
+              <li>
+                <strong>Katsu Sando (Sandwich Katsu):</strong> Siapkan dua
+                lembar roti tawar, olesi dengan saus tonkatsu atau mayones.
+                Letakkan chicken katsu yang sudah digoreng di tengahnya. Potong
+                pinggiran roti dan belah dua. Praktis dan mengenyangkan.
+              </li>
+              <li>
+                <strong>Katsu Donburi Bowl:</strong> Siapkan semangkuk nasi
+                hangat. Iris chicken katsu dan tata di atas nasi. Siram dengan
+                sedikit kecap asin Jepang dan taburi dengan irisan daun bawang
+                atau biji wijen.
+              </li>
+              <li>
+                <strong>Katsu Bites Salad:</strong> Potong dadu chicken katsu
+                yang sudah matang. Campurkan dengan selada, tomat ceri, dan
+                jagung manis. Beri saus salad favorit anak. Bekal sehat dan
+                penuh warna!
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- Post 5 -->
+      <section
+        id="blog-post-5"
+        class="page-content fade-in"
+        data-page="blog-post-5"
+      >
+        <div class="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+          <a
+            href="#blog"
+            class="page-switcher text-amber-600 hover:underline mb-6 inline-block"
+            data-page="blog"
+            >&larr; Kembali ke Blog</a
+          >
+          <img
+            src="https://www.tastingtable.com/img/gallery/minimum-6-absolute-best-cuts-of-meat-to-deep-fry/l-intro-1690972987.jpg"
+            class="w-full h-auto object-cover rounded-lg mb-6"
+          />
+          <h2 class="text-3xl font-bold mb-4">
+            Tips Menggoreng Frozen Food Agar Krispi Sempurna
+          </h2>
+          <div class="text-gray-700 space-y-4">
+            <p>
+              Mendapatkan hasil gorengan yang renyah sempurna dari produk beku
+              terkadang sedikit tricky. Ikuti tips berikut ini:
+            </p>
+            <ul class="list-disc list-inside space-y-2">
+              <li>
+                <strong>Gunakan Minyak yang Cukup:</strong> Pastikan produk
+                terendam setidaknya setengah bagian saat digoreng (metode
+                *shallow fry*) atau terendam seluruhnya (*deep fry*) untuk hasil
+                terbaik.
+              </li>
+              <li>
+                <strong>Panaskan Minyak dengan Benar:</strong> Tunggu hingga
+                minyak benar-benar panas (sekitar 170°C) sebelum memasukkan
+                produk. Minyak yang kurang panas akan membuat makanan menyerap
+                banyak minyak dan menjadi lembek.
+              </li>
+              <li>
+                <strong>Jangan Terlalu Penuh:</strong> Hindari menggoreng
+                terlalu banyak produk dalam satu waktu. Ini akan menurunkan suhu
+                minyak secara drastis dan membuat hasil gorengan tidak renyah.
+              </li>
+              <li>
+                <strong>Tiriskan dengan Baik:</strong> Setelah matang, angkat
+                dan tiriskan produk di atas rak pendingin (cooling rack) bukan
+                di atas tisu. Ini membuat uap panas bisa keluar dari semua sisi
+                dan menjaga kerenyahannya.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Post 6 -->
+      <section
+        id="blog-post-6"
+        class="page-content fade-in"
+        data-page="blog-post-6"
+      >
+        <div class="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+          <a
+            href="#blog"
+            class="page-switcher text-amber-600 hover:underline mb-6 inline-block"
+            data-page="blog"
+            >&larr; Kembali ke Blog</a
+          >
+          <img
+            src="https://static.promediateknologi.id/crop/12x202:1079x1943/750x500/webp/photo/p1/1005/2024/01/01/Screenshot_20240101_221226_Instagram-2964426419.jpg"
+            class="w-full h-auto object-cover rounded-lg mb-6"
+          />
+          <h2 class="text-3xl font-bold mb-4">
+            Sejarah Singkat Chicken Katsu di Indonesia
+          </h2>
+          <div class="text-gray-700 space-y-4">
+            <p>
+              Chicken Katsu, atau yang dikenal di Jepang sebagai *'チキンカツ'*
+              (chikinkatsu), adalah hidangan populer yang kini mudah ditemui di
+              berbagai restoran dan rumah di Indonesia. Tapi, bagaimana
+              perjalanannya?
+            </p>
+            <p>
+              Katsu sebenarnya adalah adaptasi Jepang dari hidangan Eropa, yaitu
+              *schnitzel*. Pada akhir abad ke-19, hidangan daging yang dilapisi
+              tepung roti dan digoreng ini diperkenalkan di Jepang. Versi paling
+              awal dan terkenalnya adalah *tonkatsu*, yang menggunakan daging
+              babi.
+            </p>
+            <p>
+              Seiring berjalannya waktu dan menyebarnya kuliner Jepang ke
+              seluruh dunia, variasi katsu pun berkembang. Chicken katsu lahir
+              sebagai alternatif yang populer, terutama di negara-negara dengan
+              mayoritas penduduk Muslim seperti Indonesia. Rasanya yang gurih,
+              teksturnya yang renyah, dan harganya yang lebih terjangkau membuat
+              chicken katsu cepat diterima dan menjadi salah satu menu favorit
+              keluarga Indonesia.
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/6281234567890?text=Halo%20De%20Katzu,%20saya%20mau%20pesan." target="_blank" class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-transform transform hover:scale-110">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.956-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.433-9.89-9.889-9.89-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.343 1.908 6.084l-1.161 4.225 4.273-1.12z"/></svg>
+    <a
+      href="https://wa.me/6281234567890?text=Halo%20De%20Katzu,%20saya%20mau%20pesan."
+      target="_blank"
+      class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-transform transform hover:scale-110"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-8 w-8"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.956-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.433-9.89-9.889-9.89-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.343 1.908 6.084l-1.161 4.225 4.273-1.12z"
+        />
+      </svg>
     </a>
 
     <footer class="text-center py-6 bg-white border-t border-gray-200">
-        <p class="text-gray-500">&copy; 2025 De Katzu. Hak Cipta Dilindungi.</p>
+      <p class="text-gray-500">&copy; 2025 De Katzu. Hak Cipta Dilindungi.</p>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const pageSwitchers = document.querySelectorAll('.page-switcher');
-            const navLinks = document.querySelectorAll('.nav-link');
-            const pageContents = document.querySelectorAll('.page-content');
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
+      document.addEventListener("DOMContentLoaded", function () {
+        const pageSwitchers = document.querySelectorAll(".page-switcher");
+        const navLinks = document.querySelectorAll(".nav-link");
+        const pageContents = document.querySelectorAll(".page-content");
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
 
-            // Fungsi untuk mengganti halaman
-            function switchPage(pageId) {
-                pageContents.forEach(content => {
-                    content.classList.remove('active', 'fade-in');
-                });
-                const activePage = document.getElementById(pageId);
-                if (activePage) {
-                    activePage.classList.add('active');
-                    setTimeout(() => {
-                        activePage.classList.add('fade-in');
-                    }, 10);
-                }
+        // Fungsi untuk mengganti halaman
+        function switchPage(pageId) {
+          pageContents.forEach((content) => {
+            content.classList.remove("active", "fade-in");
+          });
+          const activePage = document.getElementById(pageId);
+          if (activePage) {
+            activePage.classList.add("active");
+            setTimeout(() => {
+              activePage.classList.add("fade-in");
+            }, 10);
+          }
 
-                // Update nav link active state
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    // Jika halaman adalah salah satu post blog, tandai 'Blog' sebagai aktif di nav
-                    if (pageId.startsWith('blog-post-') && link.getAttribute('data-page') === 'blog') {
-                         link.classList.add('active');
-                    } else if (link.getAttribute('data-page') === pageId) {
-                        link.classList.add('active');
-                    }
-                });
-
-                mobileMenu.classList.add('hidden');
-                // Scroll ke atas setiap kali ganti halaman
-                window.scrollTo(0, 0);
+          // Update nav link active state
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+            // Jika halaman adalah salah satu post blog, tandai 'Blog' sebagai aktif di nav
+            if (
+              pageId.startsWith("blog-post-") &&
+              link.getAttribute("data-page") === "blog"
+            ) {
+              link.classList.add("active");
+            } else if (link.getAttribute("data-page") === pageId) {
+              link.classList.add("active");
             }
+          });
 
-            pageSwitchers.forEach(switcher => {
-                switcher.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const pageId = this.getAttribute('data-page');
-                    switchPage(pageId);
-                    window.history.pushState(null, '', `#${pageId}`);
-                });
-            });
+          mobileMenu.classList.add("hidden");
+          // Scroll ke atas setiap kali ganti halaman
+          window.scrollTo(0, 0);
+        }
 
-            mobileMenuButton.addEventListener('click', function () {
-                mobileMenu.classList.toggle('hidden');
-            });
-
-            const faqItems = document.querySelectorAll('.faq-item');
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                const answer = item.querySelector('.faq-answer');
-                const icon = question.querySelector('svg');
-                question.addEventListener('click', () => {
-                    const isVisible = !answer.classList.contains('hidden');
-                    answer.classList.toggle('hidden');
-                    icon.style.transform = isVisible ? 'rotate(0deg)' : 'rotate(180deg)';
-                });
-            });
-
-            // Handle navigasi back/forward browser
-            window.addEventListener('popstate', () => {
-                const pageId = window.location.hash.substring(1) || 'home';
-                switchPage(pageId);
-            });
-
-            // Tampilkan halaman awal berdasarkan hash URL
-            const initialPageId = window.location.hash.substring(1) || 'home';
-            switchPage(initialPageId);
-            
-            // JavaScript untuk Modal Dihapus
+        pageSwitchers.forEach((switcher) => {
+          switcher.addEventListener("click", function (e) {
+            e.preventDefault();
+            const pageId = this.getAttribute("data-page");
+            switchPage(pageId);
+            window.history.pushState(null, "", `#${pageId}`);
+          });
         });
-    </script>
-</body>
-</html>
 
+        mobileMenuButton.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+        });
+
+        const faqItems = document.querySelectorAll(".faq-item");
+        faqItems.forEach((item) => {
+          const question = item.querySelector(".faq-question");
+          const answer = item.querySelector(".faq-answer");
+          const icon = question.querySelector("svg");
+          question.addEventListener("click", () => {
+            const isVisible = !answer.classList.contains("hidden");
+            answer.classList.toggle("hidden");
+            icon.style.transform = isVisible
+              ? "rotate(0deg)"
+              : "rotate(180deg)";
+          });
+        });
+
+        // Handle navigasi back/forward browser
+        window.addEventListener("popstate", () => {
+          const pageId = window.location.hash.substring(1) || "home";
+          switchPage(pageId);
+        });
+
+        // Tampilkan halaman awal berdasarkan hash URL
+        const initialPageId = window.location.hash.substring(1) || "home";
+        switchPage(initialPageId);
+
+        // JavaScript untuk Modal Dihapus
+      });
+    </script>
+  </body>
+</html>
