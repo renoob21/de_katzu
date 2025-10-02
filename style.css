@@ -1,0 +1,43 @@
+body {
+font-family: "Inter", sans-serif;
+scroll-behavior: smooth;
+}
+h1,
+h2,
+h3 {
+font-family: "Inter", sans-serif;
+font-weight: 800;
+}
+.nav-link.active {
+color: #f59e0b; /* amber-500 */
+font-weight: 700;
+position: relative;
+}
+.nav-link.active::after {
+content: "";
+position: absolute;
+bottom: -4px;
+left: 0;
+width: 100%;
+height: 2px;
+background-color: #f59e0b; /* amber-500 */
+}
+.page-content {
+display: none;
+}
+.page-content.active {
+display: block;
+}
+.fade-in {
+animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn {
+from {
+    opacity: 0;
+    transform: translateY(10px);
+}
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
