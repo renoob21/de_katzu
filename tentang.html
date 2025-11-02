@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tentang Kami & Blog - De Katzu Frozen Food</title>
+    <meta name="description" content="Kenali lebih jauh cerita De Katzu, frozen food rumahan dari Tangerang Selatan. Temukan juga tips dan resep seputar frozen food di blog kami.">
+    <meta name="keywords" content="tentang de katzu, cerita de katzu, blog frozen food, tips memasak, resep bento">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://de-katzu.example.com/tentang.html">
+    <meta property="og:title" content="Tentang Kami & Blog - De Katzu Frozen Food">
+    <meta property="og:description" content="Kenali lebih jauh cerita De Katzu, frozen food rumahan dari Tangerang Selatan. Temukan juga tips dan resep seputar frozen food di blog kami.">
+    <meta property="og:image" content="https://i.ibb.co/SwqVnCNx/Chat-GPT-Image-Oct-1-2025-07-47-06-PM.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://de-katzu.example.com/tentang.html">
+    <meta property="twitter:title" content="Tentang Kami & Blog - De Katzu Frozen Food">
+    <meta property="twitter:description" content="Kenali lebih jauh cerita De Katzu, frozen food rumahan dari Tangerang Selatan. Temukan juga tips dan resep seputar frozen food di blog kami.">
+    <meta property="twitter:image" content="https://i.ibb.co/SwqVnCNx/Chat-GPT-Image-Oct-1-2025-07-47-06-PM.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <script src="script.js" defer></script>
+
+    <!-- Schema.org for About Page -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "Tentang De Katzu",
+      "url": "https://de-katzu.example.com/tentang.html",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "De Katzu",
+        "description": "De Katzu adalah produsen frozen food rumahan yang berfokus pada kualitas dan rasa otentik, berlokasi di Tangerang Selatan.",
+        "image": "https://i.ibb.co/SwqVnCNx/Chat-GPT-Image-Oct-1-2025-07-47-06-PM.png",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Pamulang",
+          "addressRegion": "Tangerang Selatan",
+          "addressCountry": "ID"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+62-812-3456-7890",
+          "contactType": "Customer Service"
+        }
+      }
+    }
+    </script>
+</head>
+<body class="bg-amber-50 text-gray-800">
+    <!-- Header & Navigasi -->
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+      <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="index.html" class="text-2xl font-bold text-amber-600">De Katzu</a>
+        <div class="hidden lg:flex space-x-8 items-center">
+          <a href="index.html" class="nav-link">Beranda</a>
+          <a href="produk.html" class="nav-link">Produk</a>
+          <a href="tentang.html" class="nav-link active">Tentang Kami</a>
+        </div>
+        <button id="mobile-menu-button" class="lg:hidden text-gray-600">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </nav>
+      <!-- Navigasi Mobile -->
+      <div id="mobile-menu" class="hidden lg:hidden px-6 pb-4 flex-col space-y-4">
+        <a href="index.html" class="block nav-link">Beranda</a>
+        <a href="produk.html" class="block nav-link">Produk</a>
+        <a href="tentang.html" class="block nav-link active">Tentang Kami</a>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-8 md:py-16 lg:px-32 md:px-6">
+      <!-- HALAMAN BLOG & INFO -->
+      <section id="blog-info">
+        <!-- Tentang Kami -->
+        <div id="tentang">
+            <div class="text-center">
+            <h2 class="text-4xl font-bold mb-4">Cerita dari Dapur Kecil Kami</h2>
+            </div>
+            <div class="flex flex-col lg:flex-row items-center gap-12 mt-12">
+            <div class="lg:w-1/2">
+                <img src="https://i.ibb.co.com/SwqVnCNx/Chat-GPT-Image-Oct-1-2025-07-47-06-PM.png" alt="Dapur rumahan De Katzu" class="rounded-2xl shadow-xl w-full h-auto" />
+            </div>
+            <div class="lg:w-1/2">
+                <p class="text-gray-600 leading-relaxed mb-6">
+                De Katzu lahir dari dapur sederhana di Tangerang Selatan. Awalnya
+                hanya untuk keluarga, kini kami ingin berbagi kelezatan chicken
+                katsu dan nugget sehat ke lebih banyak meja makan. Kami percaya
+                makanan praktis tak harus mahal, dan makanan sehat tak harus
+                ribet.
+                </p>
+                <h3 class="text-2xl font-bold mb-3">Visi & Misi Kami</h3>
+                <ul class="list-disc list-inside text-gray-600 space-y-2">
+                <li>
+                    Menyajikan makanan beku berkualitas tinggi dengan rasa yang
+                    otentik.
+                </li>
+                <li>
+                    Membuat makanan sehat dan praktis dapat diakses oleh semua
+                    keluarga.
+                </li>
+                <li>Mendukung gaya hidup sehat tanpa mengorbankan kelezatan.</li>
+                </ul>
+            </div>
+            </div>
+        </div>
+
+        <!-- Daftar Artikel Blog -->
+        <div id="blog" class="mt-24">
+            <div class="text-center">
+            <h2 class="text-4xl font-bold mb-12">Tips & Resep Frozen Food</h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Blog 1 -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <img src="https://cdn.antaranews.com/cache/1200x800/2022/07/26/IMG_20220726_184642_406.jpg.webp" class="w-full aspect-[4/3] object-cover" />
+                <div class="p-6">
+                <h3 class="font-bold text-lg mb-2">
+                    5 Cara Menyimpan Frozen Food agar Tahan Lebih Lama
+                </h3>
+                <p class="text-gray-600 text-sm mb-4">
+                    Menyimpan frozen food dengan benar adalah kunci agar kualitas
+                    rasa dan teksturnya tetap terjaga...
+                </p>
+                <a href="blog/post1.html" class="text-amber-600 hover:underline">Baca Selengkapnya &rarr;</a>
+                </div>
+            </div>
+            <!-- Blog 2 -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <img src="https://www.topwisata.info/wp-content/uploads/2025/09/Nugget-Sayur-Homemade-930x620.jpg" class="w-full aspect-[4/3] object-cover" />
+                <div class="p-6">
+                <h3 class="font-bold text-lg mb-2">
+                    Resep Bento Anak dengan Nugget Sayur De Katzu
+                </h3>
+                <p class="text-gray-600 text-sm mb-4">
+                    Bingung siapkan bekal untuk si kecil? Coba resep bento lucu dan
+                    sehat dengan nugget sayur andalan kami...
+                </p>
+                <a href="blog/post2.html" class="text-amber-600 hover:underline">Baca Selengkapnya &rarr;</a>
+                </div>
+            </div>
+            <!-- Blog 3 -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <img src="https://image.idntimes.com/post/20250407/whatsapp-image-2025-04-07-at-152803-39cf38dd0d5fe5cd7d7973c7c5c2cff8-0d32df24f1f375d677e7dc89979162c6.jpeg" class="w-full aspect-[4/3] object-cover" />
+                <div class="p-6">
+                <h3 class="font-bold text-lg mb-2">
+                    Kenapa Chicken Katsu Cocok Jadi Menu Praktis Sehari-hari?
+                </h3>
+                <p class="text-gray-600 text-sm mb-4">
+                    Dari makan siang hingga makan malam, chicken katsu bisa jadi
+                    penyelamat di kala lapar melanda...
+                </p>
+                <a href="blog/post3.html" class="text-amber-600 hover:underline">Baca Selengkapnya &rarr;</a>
+                </div>
+            </div>
+            <!-- Blog 4 -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <img src="https://mizkanflavors.com/wp-content/uploads/2020/03/Mizkan_crop_ChickenKatsuBento.jpg" class="w-full aspect-[4/3] object-cover" />
+                <div class="p-6">
+                <h3 class="font-bold text-lg mb-2">
+                    Kreasi Unik Chicken Katsu untuk Bekal Sekolah
+                </h3>
+                <p class="text-gray-600 text-sm mb-4">
+                    Bosan dengan bekal yang itu-itu saja? Sulap chicken katsu
+                    menjadi katsu sando atau topping donburi...
+                </p>
+                <a href="blog/post4.html" class="text-amber-600 hover:underline">Baca Selengkapnya &rarr;</a>
+                </div>
+            </div>
+            <!-- Blog 5 -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <img src="https://www.tastingtable.com/img/gallery/minimum-6-absolute-best-cuts-of-meat-to-deep-fry/l-intro-1690972987.jpg" class="w-full aspect-[4/3] object-cover" />
+                <div class="p-6">
+                <h3 class="font-bold text-lg mb-2">
+                    Tips Menggoreng Frozen Food Agar Krispi Sempurna
+                </h3>
+                <p class="text-gray-600 text-sm mb-4">
+                    Dapatkan hasil gorengan yang renyah di luar dan lembut di dalam
+                    dengan beberapa trik sederhana ini...
+                </p>
+                <a href="blog/post5.html" class="text-amber-600 hover:underline">Baca Selengkapnya &rarr;</a>
+                </div>
+            </div>
+            <!-- Blog 6 -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <img src="https://static.promediateknologi.id/crop/12x202:1079x1943/750x500/webp/photo/p1/1005/2024/01/01/Screenshot_20240101_221226_Instagram-2964426419.jpg" class="w-full aspect-[4/3] object-cover" />
+                <div class="p-6">
+                <h3 class="font-bold text-lg mb-2">
+                    Sejarah Singkat Chicken Katsu di Indonesia
+                </h3>
+                <p class="text-gray-600 text-sm mb-4">
+                    Bagaimana hidangan asal Jepang ini bisa begitu populer dan
+                    menjadi favorit banyak orang di tanah air...
+                </p>
+                <a href="blog/post6.html" class="text-amber-600 hover:underline">Baca Selengkapnya &rarr;</a>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Kontak Kami -->
+        <div id="kontak" class="mt-24 text-center">
+            <h2 class="text-4xl font-bold mb-4">Hubungi Kami</h2>
+            <p class="text-gray-600 mb-8">Kami siap melayani pesanan Anda!</p>
+            <div class="bg-white p-8 rounded-2xl shadow-lg max-w-lg mx-auto">
+            <div class="space-y-4 text-left">
+                <p>
+                <strong class="w-32 inline-block">Alamat:</strong> Pamulang,
+                Tangerang Selatan, Banten
+                </p>
+                <p>
+                <strong class="w-32 inline-block">Instagram:</strong>
+                <a href="https://instagram.com/de_katzu" target="_blank" class="text-amber-600 hover:underline">@de_katzu</a>
+                </p>
+            </div>
+            <a href="https://wa.me/6281234567890?text=Halo%20De%20Katzu,%20saya%20mau%20bertanya." target="_blank" class="mt-8 w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-transform transform hover:scale-105 flex items-center justify-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.956-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.433-9.89-9.889-9.89-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.343 1.908 6.084l-1.161 4.225 4.273-1.12z" />
+                </svg>
+                <span>Hubungi via WhatsApp</span>
+            </a>
+            </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6281234567890?text=Halo%20De%20Katzu,%20saya%20mau%20pesan." target="_blank" class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-transform transform hover:scale-110">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.956-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.433-9.89-9.889-9.89-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.343 1.908 6.084l-1.161 4.225 4.273-1.12z" />
+      </svg>
+    </a>
+
+    <footer class="text-center py-6 bg-white border-t border-gray-200">
+      <p class="text-gray-500">&copy; 2025 De Katzu. Hak Cipta Dilindungi.</p>
+    </footer>
+</body>
+</html>
